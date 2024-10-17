@@ -1,0 +1,29 @@
+services:
+  app:
+    build:
+      context: docker/nginx
+    ports:
+        - "85:80"
+    volumes:
+      - ./:/app
+    depends_on:
+      - php-fpm
+    tty: true
+    restart: unless-stopped
+
+  php-fpm:
+    build:
+      context: docker/php-fpm
+    volumes:
+      - ./:/app
+    restart: unless-stopped
+    tty: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  php-cli:
+    build:
+      context: docker/php-cli
+    tty: true
+    volumes:
+      - ./:/app

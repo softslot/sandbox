@@ -1,0 +1,19 @@
+{
+    "name": "konstantin/sandbox",
+    "description": "sandbox",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sandbox\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Константин Короленко",
+            "email": "konstantin.korolenko@infourok.biz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
