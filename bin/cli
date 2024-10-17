@@ -2,4 +2,20 @@
 
 <?php
 
-echo 'Hello' . PHP_EOL;
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Sandbox\ReportBuilder;
+use Symfony\Component\Lock\LockFactory;
+use Symfony\Component\Lock\Store\SemaphoreStore;
+
+$store = new SemaphoreStore();
+$factory = new LockFactory($store);
+
+$lock = $factory->createLock('build-report');
+
+if ($lock->acquire(blocking: true)) {
+  $reportBuilder = new ReportBuilder(steps: 10);
+  $reportBuilder->build();
+
+  $lock->release();
+}
