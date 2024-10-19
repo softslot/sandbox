@@ -13,4 +13,7 @@ docker-up:
 	docker compose up -d
 
 composer-install:
-	docker compose run --rm php-cli composer install
+	docker compose run --rm app composer install
+
+cli:
+	docker compose exec app ./bin/cli
