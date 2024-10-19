@@ -5,7 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Sandbox\\": "src/"
+            "Sandbox\\": "src/",
+            "Test\\": "tests/"
         }
     },
     "authors": [
@@ -15,5 +16,10 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^12.0@dev"
+    },
+    "require": {
+        "ext-curl": "*"
+    }
 }

@@ -17,3 +17,6 @@ composer-install:
 
 cli:
 	docker compose exec app ./bin/cli
+
+test:
+	docker compose exec app ./vendor/bin/phpunit tests

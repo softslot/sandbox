@@ -2,4 +2,12 @@
 
 <?php
 
-echo 'Hello' . PHP_EOL;
+use Sandbox\Api\CatFactApi;
+use Sandbox\Service\ReportBuilder;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$builder = new ReportBuilder([1, 2, 3], new CatFactApi());
+$result = $builder->getSumWithFact();
+
+echo $result . PHP_EOL;
