@@ -1,15 +1,15 @@
 services:
     app:
         build:
-        context: docker/nginx
+            context: docker/nginx
         ports:
             - "85:80"
         volumes:
             - ./:/app
-    depends_on:
-        - php-fpm
-    tty: true
-    restart: unless-stopped
+        depends_on:
+            - php-fpm
+        tty: true
+        restart: unless-stopped
 
     php-fpm:
         build:
