@@ -13,4 +13,8 @@ ENV PHP_IDE_CONFIG 'serverName=sandbox'
 
 COPY ./conf.d /usr/local/etc/php/conf.d
 
+RUN groupadd -g 1000 app && useradd -u 1000 -ms /bin/bash -g app user
+
 WORKDIR /app
+
+USER user
